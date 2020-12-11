@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.levelupproject.retrofitclient.ProductWithCouponData
+import java.text.DecimalFormat
 
 class RecyclerViewAdapter(private val items: ArrayList<ProductWithCouponData.DataBean.ProductsBean>) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -52,6 +53,8 @@ class RecyclerViewAdapter(private val items: ArrayList<ProductWithCouponData.Dat
             // 재사용을 하려면 10개의 뷰(보여지는 뷰)를 기억하고있을(홀당) 객체가 필요한데 이것이 viewHolder 아다.
 
             tv_product_name.text = item.name
+            val formatter : DecimalFormat = DecimalFormat("#,##0")
+            tv_price.text = formatter.format(item.price)
 
         }
 
